@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+.hero-bg {
+  background: radial-gradient(ellipse at center right, #b91c1c 0%, #7f1d1d 50%, #450a0a 100%);
+}
+
+.status-badge {
+    @apply px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider;
+}
+
+.status-pending { @apply bg-amber-50 text-amber-600; }
+.status-resolving { @apply bg-blue-50 text-blue-600; }
+.status-resolved { @apply bg-emerald-50 text-emerald-600; }
+
+.sidebar-link.active {
+    @apply bg-safiox-red shadow-lg shadow-red-500/20 text-white !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+}
