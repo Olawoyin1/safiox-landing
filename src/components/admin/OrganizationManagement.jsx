@@ -72,6 +72,8 @@ const OrganizationManagement = () => {
         a.href = url; a.download = 'organizations.csv'; a.click();
         URL.revokeObjectURL(url);
     };
+
+    const handleApprove = async (id) => {
         if (!confirm('Approve this organization?')) return;
         try {
             const res = await AdminAPI.approveOrg(id);
