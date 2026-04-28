@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://safiox-server.onrender.com/api/admin';
+const API_BASE_URL = 'https://safiox-server-flu1.onrender.com/api/admin';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
@@ -44,5 +44,5 @@ export const AdminAPI = {
     verifyResponder: (id, verified) => api.put(`/community/responders/${id}/verify`, { verified }),
     sendBroadcast: (data) => api.post('/broadcast', data),
 
-    login: (email, password) => axios.post('https://safiox-server.onrender.com/api/auth/login', { email, password }).then(res => res.data)
+    login: (email, password) => axios.post('https://safiox-server-flu1.onrender.com/api/auth/login', { email, password }).then(res => res.data)
 };

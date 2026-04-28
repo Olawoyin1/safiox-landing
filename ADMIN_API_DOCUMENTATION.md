@@ -1,6 +1,6 @@
 # Safiox Admin API Documentation
 
-**Base URL:** `https://safiox-server.onrender.com/api/admin`
+**Base URL:** `https://safiox-server-flu1.onrender.com/api/admin`
 
 All admin endpoints require:
 - `Authorization: Bearer <accessToken>` header
