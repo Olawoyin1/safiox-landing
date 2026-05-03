@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShieldCheck, Loader2 } from 'lucide-react';
+import { ShieldCheck, Loader2, Eye, EyeOff } from 'lucide-react';
 import { AdminAPI } from '../services/adminApi';
 import toast from 'react-hot-toast';
 
 const AdminLogin = () => {
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -47,28 +48,38 @@ const AdminLogin = () => {
                     <p className="text-slate-400 mt-2 font-medium">Secure Authorization Gateway</p>
                 </div>
 
-                <form className="space-y-6" onSubmit={handleSubmit}>
+                <form className="space-y-6" onSubmit={handleSubmit} autoComplete="off">
                     <div className="space-y-1.5">
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
                         <input
                             name="email"
                             type="email"
                             required
-                            defaultValue="admin@safiox.com"
+                            autoComplete="off"
                             className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
                             placeholder="admin@safiox.com"
                         />
                     </div>
                     <div className="space-y-1.5">
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Access Passcode</label>
-                        <input
-                            name="password"
-                            type="password"
-                            required
-                            defaultValue="admin123"
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
-                            placeholder="••••••••"
-                        />
+                        <div className="relative">
+                            <input
+                                name="password"
+                                type={showPassword ? 'text' : 'password'}
+                                required
+                                autoComplete="new-password"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 pr-12 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+                                placeholder="••••••••"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(v => !v)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition"
+                                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                            >
+                                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                            </button>
+                        </div>
                     </div>
                     <button
                         type="submit"
