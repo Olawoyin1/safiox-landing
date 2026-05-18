@@ -32,6 +32,7 @@ export const AdminAPI = {
     deactivateUser: (id) => api.put(`/users/${id}/deactivate`),
     reactivateUser: (id) => api.put(`/users/${id}/reactivate`),
     getOrganizations: (query = '') => api.get(`/organizations${query ? '?' + query : ''}`),
+    getOrganization: (id) => api.get(`/organizations/${id}`),
     approveOrg: (id) => api.put(`/organizations/${id}/approve`),
     rejectOrg: (id, reason) => api.put(`/organizations/${id}/reject`, { reason }),
     getPosts: (params = '') => api.get(`/posts?${params}`),

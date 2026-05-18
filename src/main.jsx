@@ -2,42 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
+import { ErrorBoundary } from 'react-error-boundary';
 
-class ErrorBoundary extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { hasError: false, error: null, errorInfo: null };
-    }
-
-    static getDerivedStateFromError(error) {
-        return { hasError: true };
-    }
-
-    componentDidCatch(error, errorInfo) {
-        console.error("ErrorBoundary caught an error", error, errorInfo);
-        this.setState({ error, errorInfo });
-    }
-
-    render() {
-        if (this.state.hasError) {
-            return (
-                <div style={{ padding: '20px', backgroundColor: '#fdd', color: '#900' }}>
-                    <h2>Something went wrong.</h2>
-                    <details style={{ whiteSpace: 'pre-wrap' }}>
-                        {this.state.error && this.state.error.toString()}
-                        <br />
-                        {this.state.errorInfo && this.state.errorInfo.componentStack}
-                    </details>
-                </div>
-            );
-        }
-        return this.props.children;
-    }
+function ErrorFallback({ error }) {
+    return (
+        <div style={{ padding: '20px', backgroundColor: '#fdd', color: '#900' }}>
+            <h2>Something went wrong.</h2>
+            <details style={{ whiteSpace: 'pre-wrap' }}>
+                {error.toString()}
+            </details>
+        </div>
+    );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
             <App />
         </ErrorBoundary>
     </React.StrictMode>,
