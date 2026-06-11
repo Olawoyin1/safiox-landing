@@ -40,39 +40,39 @@ const SosMonitoring = () => {
     };
 
     return (
-        <div className="space-y-6 animate-in fade-in duration-500">
-            <h2 className="text-2xl font-bold text-slate-800">SOS Monitoring</h2>
+        <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800">SOS Monitoring</h2>
 
             {loading ? (
-                <div className="py-20 text-center text-slate-400">
-                    <Loader2 className="w-10 h-10 animate-spin mx-auto mb-4 text-slate-200" />
+                <div className="py-12 md:py-20 text-center text-slate-400">
+                    <Loader2 className="w-8 md:w-10 h-8 md:h-10 animate-spin mx-auto mb-3 md:mb-4 text-slate-200" />
                     Checking for active distress signals...
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {alerts.length > 0 ? alerts.map(alert => (
-                        <div key={alert._id} className="bg-white border-2 border-red-50 rounded-3xl p-6 shadow-sm hover:shadow-md transition group">
-                            <div className="flex justify-between items-start mb-4">
+                        <div key={alert._id} className="bg-white border-2 border-red-50 rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm hover:shadow-md transition group">
+                            <div className="flex justify-between items-start mb-3 md:mb-4">
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg shadow-red-200 group-hover:scale-110 transition duration-500">
                                         <AlertCircle className="w-5 h-5" />
                                     </div>
-                                    <div>
-                                        <h4 className="font-bold text-slate-800">{alert.userId?.name || 'Unknown User'}</h4>
+                                    <div className="min-w-0">
+                                        <h4 className="font-bold text-slate-800 truncate">{alert.userId?.name || 'Unknown User'}</h4>
                                         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{alert.trackingToken}</p>
                                     </div>
                                 </div>
-                                <span className="px-3 py-1 bg-red-500 text-white text-[10px] font-black rounded-full animate-pulse">LIVE SOS</span>
+                                <span className="px-3 py-1 bg-red-500 text-white text-[10px] font-black rounded-full animate-pulse flex-shrink-0">LIVE SOS</span>
                             </div>
 
-                            <div className="space-y-3 mb-6">
+                            <div className="space-y-3 mb-4 md:mb-6">
                                 <div className="flex items-center gap-3 text-sm text-slate-600">
-                                    <Phone className="w-4 h-4 text-slate-400" />
-                                    {alert.userId?.phone || 'No phone'}
+                                    <Phone className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                                    <span className="truncate">{alert.userId?.phone || 'No phone'}</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-slate-600">
-                                    <Clock className="w-4 h-4 text-slate-400" />
-                                    Triggered: {new Date(alert.createdAt).toLocaleTimeString()}
+                                    <Clock className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                                    <span>Triggered: {new Date(alert.createdAt).toLocaleTimeString()}</span>
                                 </div>
                             </div>
 
@@ -84,9 +84,9 @@ const SosMonitoring = () => {
                             </button>
                         </div>
                     )) : (
-                        <div className="col-span-full p-20 text-center text-slate-400 border border-dashed border-slate-200 rounded-[2.5rem]">
-                            <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <ShieldCheckIcon className="w-8 h-8 text-slate-200" />
+                        <div className="col-span-full p-10 md:p-20 text-center text-slate-400 border border-dashed border-slate-200 rounded-3xl">
+                            <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                <ShieldCheckIcon className="w-7 h-7 md:w-8 md:h-8 text-slate-200" />
                             </div>
                             <p className="font-bold text-slate-300">No active SOS alerts at this time.</p>
                             <p className="text-xs mt-1 text-slate-300">System is standing by...</p>

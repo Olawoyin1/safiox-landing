@@ -34,9 +34,7 @@ const Sidebar = ({ pendingCount, isOpen, onClose }) => {
             <aside className={`fixed inset-y-0 left-0 w-64 bg-safiox-dark text-white z-40 md:relative md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col border-r border-safiox-border overflow-y-auto ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="p-6 flex items-center justify-between">
                     <div className="flex items-center gap-3 font-bold text-2xl">
-                        <div className="bg-safiox-red p-1.5 rounded-xl shadow-lg shadow-red-500/20">
-                            <ShieldCheck className="w-7 h-7" />
-                        </div>
+                        <img src="/Images/safioxLogo.png" alt="Safiox Logo" className="w-8 h-8" />
                         <span>Safiox</span>
                     </div>
                     <button onClick={onClose} className="md:hidden text-safiox-muted hover:text-white transition p-1">

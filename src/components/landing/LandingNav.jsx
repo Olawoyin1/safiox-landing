@@ -18,29 +18,26 @@ const LandingNav = () => {
 
     return (
         <>
-            <nav className="absolute top-0 left-0 right-0 z-20 px-6 py-4">
-                <div className="max-w-6xl mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-white font-bold text-lg flex-shrink-0">
-                        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z" fill="white" fillOpacity="0.9"/>
-                            <path d="M9 12l2 2 4-4" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+            <nav className="absolute top-0 right-0 left-0 z-20 px-6 py-4">
+                <div className="flex justify-between items-center mx-auto max-w-6xl">
+                    <div className="flex flex-shrink-0 gap-2 items-center text-lg font-bold text-white">
+                        <img src="/Images/safioxLogo.png" alt="Safiox Logo" className="w-7 h-7" />
                         Safiox
                     </div>
 
-                    <div className="hidden md:flex items-center gap-8 text-white text-sm font-medium">
-                        <a href="#features" className="hover:opacity-80 transition-opacity">Features</a>
-                        <a href="#dashboard" className="hover:opacity-80 transition-opacity">Dashboard</a>
-                        <a href="#testimonials" className="hover:opacity-80 transition-opacity">Testimonials</a>
-                        <a href="#download" className="hover:opacity-80 transition-opacity">Download</a>
-                        <a href="#contact" className="hover:opacity-80 transition-opacity">Contact</a>
+                    <div className="hidden gap-8 items-center text-sm font-medium text-white md:flex">
+                        <a href="#features" className="transition-opacity hover:opacity-80">Features</a>
+                        <a href="#dashboard" className="transition-opacity hover:opacity-80">Dashboard</a>
+                        <a href="#testimonials" className="transition-opacity hover:opacity-80">Testimonials</a>
+                        <a href="#download" className="transition-opacity hover:opacity-80">Download</a>
+                        <a href="#contact" className="transition-opacity hover:opacity-80">Contact</a>
                     </div>
 
-                    <div className="hidden md:flex items-center">
-                        <button onClick={() => document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' })} className="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition">Download App</button>
+                    <div className="hidden items-center md:flex">
+                        <button onClick={() => document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' })} className="px-5 py-2 text-sm font-semibold text-white bg-red-600 rounded-lg transition hover:bg-red-700">Download App</button>
                     </div>
 
-                    <button onClick={toggle} className="md:hidden text-white p-1 z-50 relative" aria-label="Toggle menu">
+                    <button onClick={toggle} className="relative z-50 p-1 text-white md:hidden" aria-label="Toggle menu">
                         {isOpen ? (
                             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -62,27 +59,24 @@ const LandingNav = () => {
 
             {/* Drawer */}
             <div className={`fixed top-0 left-0 h-full w-72 bg-white z-40 shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-                    <div className="flex items-center gap-2 font-bold text-gray-900 text-lg">
-                        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z" fill="#dc2626" fillOpacity="0.9"/>
-                            <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                <div className="flex justify-between items-center px-6 py-5 border-b border-gray-100">
+                    <div className="flex gap-2 items-center text-lg font-bold text-gray-900">
+                        <img src="/Images/safioxLogo.png" alt="Safiox Logo" className="w-7 h-7" />
                         Safiox
                     </div>
-                    <button onClick={close} className="text-gray-400 hover:text-gray-700 transition p-1">
+                    <button onClick={close} className="p-1 text-gray-400 transition hover:text-gray-700">
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
                 </div>
-                <nav className="flex flex-col px-6 py-6 gap-1 flex-1">
+                <nav className="flex flex-col flex-1 gap-1 px-6 py-6">
                     {[['features','Features'],['dashboard','Dashboard'],['testimonials','Testimonials'],['download','Download'],['contact','Contact']].map(([id, label]) => (
-                        <a key={id} href={`#${id}`} onClick={close} className="text-gray-700 hover:text-red-600 hover:bg-red-50 font-medium text-sm px-3 py-3 rounded-lg transition">{label}</a>
+                        <a key={id} href={`#${id}`} onClick={close} className="px-3 py-3 text-sm font-medium text-gray-700 rounded-lg transition hover:text-red-600 hover:bg-red-50">{label}</a>
                     ))}
                 </nav>
                 <div className="px-6 pb-8">
-                    <button onClick={() => { close(); document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-lg transition text-sm">Download App</button>
+                    <button onClick={() => { close(); document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' }); }} className="px-5 py-3 w-full text-sm font-semibold text-white bg-red-600 rounded-lg transition hover:bg-red-700">Download App</button>
                 </div>
             </div>
         </>

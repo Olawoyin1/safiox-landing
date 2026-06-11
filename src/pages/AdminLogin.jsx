@@ -41,8 +41,8 @@ const AdminLogin = () => {
         <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4">
             <div className="w-full max-w-md p-10 bg-white rounded-3xl shadow-2xl">
                 <div className="flex flex-col items-center mb-10">
-                    <div className="w-20 h-20 bg-red-600 rounded-3xl flex items-center justify-center text-white shadow-2xl shadow-red-500/40 mb-6">
-                        <ShieldCheck className="w-10 h-10" />
+                    <div className="mb-6">
+                        <img src="/Images/safioxLogo.png" alt="Safiox Logo" className="w-20 h-20" />
                     </div>
                     <h2 className="text-3xl font-black text-slate-800 tracking-tight">Safiox Admin</h2>
                     <p className="text-slate-400 mt-2 font-medium">Secure Authorization Gateway</p>

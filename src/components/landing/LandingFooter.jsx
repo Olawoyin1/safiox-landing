@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 
 const LandingFooter = () => (
   <footer className="bg-gray-900 text-white pt-16 pb-8 px-8">
@@ -6,10 +6,7 @@ const LandingFooter = () => (
       <div className="grid md:grid-cols-4 gap-10 mb-12">
         <div>
           <div className="flex items-center gap-2 font-bold text-lg mb-4">
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z" fill="#3b82f6" fillOpacity="0.9"/>
-              <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src="/Images/safioxLogo.png" alt="Safiox Logo" className="w-7 h-7" />
             Safiox
           </div>
           <p className="text-gray-400 text-sm leading-relaxed mb-5">Empowering individuals and communities with cutting-edge safety technology for instant emergency response.</p>

@@ -39,9 +39,12 @@ const IncidentLogs = () => {
                         <div key={incident._id} className="bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-lg transition cursor-pointer group">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-[10px] font-black uppercase tracking-widest">{incident.type}</div>
-                                <span className="text-[10px] text-slate-400 font-bold">{new Date(incident.createdAt).toLocaleTimeString()}</span>
                             </div>
                             <h4 className="font-bold text-slate-800 mb-2">{incident.userName}</h4>
+                            <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold mb-2">
+                                <History className="w-3 h-3 text-slate-400" />
+                                {new Date(incident.createdAt).toLocaleString()}
+                            </div>
                             <p className="text-xs text-slate-500 line-clamp-2 mb-4 italic">"{incident.description || 'No description provided'}"</p>
                             <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
                                 <MapPin className="w-3 h-3 text-red-500" />
